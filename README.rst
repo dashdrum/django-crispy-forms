@@ -1,3 +1,5 @@
+**NOTE:** This 'strictversion' branch is based on the tagged version 1.4.0 with my fixes to the tests included
+
 ===================
 django-crispy-forms
 ===================
