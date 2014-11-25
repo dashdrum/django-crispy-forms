@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import re
 
 from django import forms
@@ -22,7 +24,7 @@ from crispy_forms.utils import render_crispy_form
 
 class TestLayoutObjects(CrispyTestCase):
     def test_multiwidget_field(self):
-        template = loader.get_template_from_string(u"""
+        template = loader.get_template_from_string("""
             {% load crispy_forms_tags %}
             {% crispy form %}
         """)
@@ -50,7 +52,7 @@ class TestLayoutObjects(CrispyTestCase):
         self.assertEqual(html.count('type="hidden"'), 1)
 
     def test_field_type_hidden(self):
-        template = loader.get_template_from_string(u"""
+        template = loader.get_template_from_string("""
             {% load crispy_forms_tags %}
             {% crispy test_form %}
         """)
@@ -111,7 +113,7 @@ class TestLayoutObjects(CrispyTestCase):
             HTML(_("Enter a valid value."))
         )
         html = render_crispy_form(form)
-        self.assertTrue(u"Introduzca un valor correcto" in html)
+        self.assertTrue("Introduzca un valor correcto" in html)
         deactivate()
 
 
