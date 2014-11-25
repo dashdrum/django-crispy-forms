@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import warnings
 from random import randint
 
@@ -80,7 +82,7 @@ class FormActions(LayoutObject):
             self.attrs['class'] = self.attrs.pop('css_class')
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
-        html = u''
+        html = ''
         for field in self.fields:
             html += render_field(field, form, form_style, context, template_pack=template_pack)
 

@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from __future__ import with_statement
 import inspect
 import logging
@@ -148,7 +150,7 @@ def flatatt(attrs):
     XML-style pairs.  It is assumed that the keys do not need to be XML-escaped.
     If the passed dictionary is empty, then return an empty string.
     """
-    return u''.join([u' %s="%s"' % (k.replace('_', '-'), conditional_escape(v)) for k, v in attrs.items()])
+    return ''.join([' %s="%s"' % (k.replace('_', '-'), conditional_escape(v)) for k, v in attrs.items()])
 
 
 def render_crispy_form(form, helper=None, context=None):

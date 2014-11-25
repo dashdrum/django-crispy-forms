@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import warnings
 
 from django.conf import settings
@@ -160,7 +162,7 @@ class ButtonHolder(LayoutObject):
         self.template = kwargs.get('template', self.template)
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK):
-        html = u''
+        html = ''
         for field in self.fields:
             html += render_field(field, form, form_style,
                                  context, template_pack=template_pack)
@@ -277,7 +279,7 @@ class Fieldset(LayoutObject):
 
         legend = ''
         if self.legend:
-            legend = u'%s' % Template(text_type(self.legend)).render(context)
+            legend = '%s' % Template(text_type(self.legend)).render(context)
         return render_to_string(self.template, Context({'fieldset': self, 'legend': legend, 'fields': fields, 'form_style': form_style}))
 
 
@@ -289,8 +291,8 @@ class MultiField(LayoutObject):
     def __init__(self, label, *fields, **kwargs):
         self.fields = list(fields)
         self.label_html = label
-        self.label_class = kwargs.pop('label_class', u'blockLabel')
-        self.css_class = kwargs.pop('css_class', u'ctrlHolder')
+        self.label_class = kwargs.pop('label_class', 'blockLabel')
+        self.css_class = kwargs.pop('css_class', 'ctrlHolder')
         self.css_id = kwargs.pop('css_id', None)
         self.template = kwargs.pop('template', self.template)
         self.field_template = kwargs.pop('field_template', self.field_template)
@@ -303,7 +305,7 @@ class MultiField(LayoutObject):
                 if field in form.errors:
                     self.css_class += " error"
 
-        fields_output = u''
+        fields_output = ''
         for field in self.fields:
             fields_output += render_field(
                 field, form, form_style, context,
